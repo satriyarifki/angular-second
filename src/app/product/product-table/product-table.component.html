@@ -1,0 +1,22 @@
+<div class="flex justify-center items-stretch p-5">
+  <table class="table w-full text-xs sm:text-base" data-theme="synthwave">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Processor</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Looping Row Table -->
+      <tr class="hover" *ngFor="let item of products">
+        <th>{{ item.name }}</th>
+        <td>{{ item.color }}</td>
+        <td>{{ item.processor }}</td>
+        <td>${{ item.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
