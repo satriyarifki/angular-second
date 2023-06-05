@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   Input,
   OnChanges,
@@ -59,19 +58,16 @@ export class ProductChartComponent implements OnInit, OnChanges {
   //     });
   //   });
   // }
+  contoh = 'ss';
   mock: IMock[] = [];
   mockSum: IMockSum[] = [];
   mockYear: String[] = [];
   mockMonth: String[] = [];
   mockMonthLabel: String[] = [];
   mockEsSum: Number[] = [];
-  onchang: any;
   myChart: any;
   ylabel = '';
-  constructor(
-    private pservice: ProductService,
-    private detect: ChangeDetectorRef
-  ) {}
+  constructor(private pservice: ProductService) {}
 
   ngOnInit(): void {
     this.pservice.getMock().subscribe((respon: any) => {
@@ -86,11 +82,11 @@ export class ProductChartComponent implements OnInit, OnChanges {
         this.mockEsSum.push(row.sum_estoque);
       }
       this.chart();
-      
     });
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.onchang = changes;
+    console.log(this.contoh);
+
     for (let i = 0; i <= this.mockMonthLabel.length; i++) {
       if (this.selected == this.mockMonthLabel[i]) {
         this.mockMonth.length = 0;
